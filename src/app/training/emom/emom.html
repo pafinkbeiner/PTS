@@ -1,0 +1,53 @@
+<div class="emom-container">
+  <div class="emom-header">
+    <h1>EMOM Training</h1>
+    <p class="subtitle">Every Minute On the Minute</p>
+  </div>
+
+  <div class="timer-display">
+    <div class="round-info">
+      <span class="round-label">Runde</span>
+      <span class="round-number">{{ emomService.currentRound() }} / {{ emomService.totalRounds() }}</span>
+    </div>
+    
+    <div class="timer">
+      <span class="time">{{ formatTime(emomService.timeRemaining()) }}</span>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button 
+      class="btn btn-start" 
+      (click)="onStart()" 
+      [disabled]="emomService.isRunning() || (emomService.currentRound() >= emomService.totalRounds() && !emomService.isPaused())">
+      {{ emomService.isPaused() ? 'Fortsetzen' : 'Start' }}
+    </button>
+    
+    <button 
+      class="btn btn-pause" 
+      (click)="onPause()" 
+      [disabled]="!emomService.isRunning()">
+      Pause
+    </button>
+    
+    <button 
+      class="btn btn-reset" 
+      (click)="onReset()">
+      Reset
+    </button>
+  </div>
+
+  <div class="rounds-overview">
+    <h3>Runden-Übersicht</h3>
+    <div class="rounds-grid">
+      <div 
+        *ngFor="let round of emomService.rounds()" 
+        class="round-item"
+        [class.completed]="round.completed"
+        [class.active]="round.roundNumber === emomService.currentRound()">
+        <span class="round-item-number">{{ round.roundNumber }}</span>
+        <span *ngIf="round.completed" class="checkmark">✓</span>
+      </div>
+    </div>
+  </div>
+</div>

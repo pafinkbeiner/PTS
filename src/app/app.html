@@ -1,0 +1,33 @@
+<div class="app-container">
+  <!-- Burger Menu Button -->
+  <button class="burger-menu" (click)="toggleMenu()" [class.active]="menuOpen()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- Menu Overlay -->
+  <div class="menu-overlay" [class.open]="menuOpen()">
+    <div class="menu-content">
+      <h1 class="menu-title">{{ title() }}</h1>
+      
+      <div class="trainings-list">
+        <h2>Verfügbare Trainings</h2>
+        <div class="training-cards">
+          <div 
+            *ngFor="let training of trainings" 
+            class="training-card"
+            (click)="selectTraining(training)">
+            <h3>{{ training.name }}</h3>
+            <p>{{ training.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content Area -->
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
