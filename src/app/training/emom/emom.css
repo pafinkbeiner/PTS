@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 2rem;
   min-height: 100vh;
+  background: #0a0a0a;
 }
 
 .emom-header {
@@ -11,24 +12,28 @@
 }
 
 .emom-header h1 {
-  color: #2d3748;
+  color: #ffffff;
   font-size: 2.5rem;
   font-weight: 700;
   margin: 0 0 0.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 .subtitle {
-  color: #718096;
+  color: #888888;
   font-size: 1.1rem;
   margin: 0;
+  letter-spacing: 0.05em;
 }
 
 .timer-display {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #1a1a1a;
+  border: 2px solid #333333;
   border-radius: 1.5rem;
   padding: 3rem 2rem;
   margin-bottom: 2rem;
-  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), inset 0 2px 4px rgba(255, 255, 255, 0.05);
 }
 
 .round-info {
@@ -40,15 +45,18 @@
 }
 
 .round-label {
-  color: rgba(255, 255, 255, 0.8);
+  color: #666666;
   font-size: 1.2rem;
   font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 .round-number {
-  color: white;
+  color: #ffffff;
   font-size: 2rem;
   font-weight: 700;
+  font-family: 'Orbitron', monospace;
 }
 
 .timer {
@@ -56,12 +64,15 @@
 }
 
 .time {
-  color: white;
+  color: #00ff00;
   font-size: 5rem;
-  font-weight: 700;
-  font-family: 'Courier New', monospace;
-  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  letter-spacing: 0.1em;
+  font-weight: 900;
+  font-family: 'Orbitron', monospace;
+  text-shadow: 
+    0 0 10px rgba(0, 255, 0, 0.8),
+    0 0 20px rgba(0, 255, 0, 0.5),
+    0 0 30px rgba(0, 255, 0, 0.3);
+  letter-spacing: 0.15em;
 }
 
 .controls {
@@ -76,24 +87,25 @@
   padding: 1rem 2.5rem;
   font-size: 1.1rem;
   font-weight: 600;
-  border: none;
-  border-radius: 0.75rem;
+  border: 2px solid;
+  border-radius: 0.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  background: #1a1a1a;
 }
 
 .btn:disabled {
-  opacity: 0.5;
+  opacity: 0.3;
   cursor: not-allowed;
   transform: none !important;
 }
 
 .btn:not(:disabled):hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
 }
 
 .btn:not(:disabled):active {
@@ -101,33 +113,51 @@
 }
 
 .btn-start {
-  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
-  color: white;
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+.btn-start:not(:disabled):hover {
+  background: #ffffff;
+  color: #0a0a0a;
 }
 
 .btn-pause {
-  background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);
-  color: white;
+  border-color: #888888;
+  color: #888888;
+}
+
+.btn-pause:not(:disabled):hover {
+  background: #888888;
+  color: #0a0a0a;
 }
 
 .btn-reset {
-  background: linear-gradient(135deg, #f56565 0%, #e53e3e 100%);
-  color: white;
+  border-color: #444444;
+  color: #444444;
+}
+
+.btn-reset:not(:disabled):hover {
+  background: #444444;
+  color: #ffffff;
 }
 
 .rounds-overview {
-  background: white;
+  background: #1a1a1a;
+  border: 2px solid #333333;
   border-radius: 1rem;
   padding: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
 .rounds-overview h3 {
-  color: #2d3748;
+  color: #ffffff;
   font-size: 1.5rem;
   font-weight: 600;
   margin: 0 0 1.5rem 0;
   text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 .rounds-grid {
@@ -142,28 +172,30 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  background: #edf2f7;
-  border: 2px solid #e2e8f0;
+  background: #0a0a0a;
+  border: 2px solid #333333;
   border-radius: 0.5rem;
   font-size: 1.2rem;
   font-weight: 600;
-  color: #718096;
+  color: #444444;
   transition: all 0.3s ease;
 }
 
 .round-item.active {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-color: #5a67d8;
-  color: white;
+  background: #2a2a2a;
+  border-color: #ffffff;
+  color: #ffffff;
   transform: scale(1.1);
-  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+  box-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.5),
+    0 0 20px rgba(255, 255, 255, 0.3);
   z-index: 1;
 }
 
 .round-item.completed {
-  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
-  border-color: #38a169;
-  color: white;
+  background: #1a1a1a;
+  border-color: #666666;
+  color: #888888;
 }
 
 .round-item-number {
